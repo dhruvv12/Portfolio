@@ -1,0 +1,169 @@
+<section class="projects-section">
+  <div class="container py-5">
+    <!-- Page Header -->
+    <div class="text-center mb-5">
+      <h1 class="display-4 fw-bold text-white mb-3">My Projects</h1>
+      <div class="title-underline"></div>
+      <p class="lead text-white-50">Professional work and company projects</p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="category-filter mb-5">
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <button 
+          *ngFor="let category of categories"
+          (click)="selectCategory(category)"
+          [class.active]="selectedCategory === category"
+          class="category-btn">
+          <i class="bi bi-check-circle-fill me-2" *ngIf="selectedCategory === category"></i>
+          {{ category }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="row g-4">
+      <div class="col-lg-6" *ngFor="let project of filteredProjects">
+        <div class="project-card">
+          <!-- Card Header with Gradient -->
+          <div class="project-header" [style.background]="project.gradient">
+            <div class="project-icon">
+              <i class="bi bi-{{ project.icon }}"></i>
+            </div>
+            <span class="project-category">{{ project.category }}</span>
+            
+            <!-- ✅ Company Project Badge -->
+            <span class="company-badge" *ngIf="project.isPrivate">
+              <i class="bi bi-building me-1"></i>Company Project
+            </span>
+          </div>
+
+          <!-- Card Body -->
+          <div class="project-body">
+            <h3 class="project-title text-white fw-bold mb-3">{{ project.title }}</h3>
+            <p class="project-description text-white-50 mb-4">{{ project.description }}</p>
+
+            <!-- Features -->
+            <div class="project-features mb-4">
+              <h5 class="features-title text-info mb-3">
+                <i class="bi bi-star-fill me-2"></i>Key Features
+              </h5>
+              <ul class="features-list">
+                <li class="text-white-50" *ngFor="let feature of project.features">
+                  <i class="bi bi-check2 text-info me-2"></i>{{ feature }}
+                </li>
+              </ul>
+            </div>
+
+            <!-- Technologies -->
+            <div class="project-technologies">
+              <h5 class="tech-title text-info mb-3">
+                <i class="bi bi-tools me-2"></i>Technologies Used
+              </h5>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="tech-tag" *ngFor="let tech of project.technologies">
+                  {{ tech }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Footer - ✅ Company Projects Layout -->
+          <div class="project-footer">
+            <!-- ✅ Demo-Only Layout for Company Projects -->
+            <div *ngIf="project.isPrivate && hasDemoUrl(project)" class="single-button-layout">
+              <button 
+                class="btn btn-info btn-lg w-100"
+                (click)="openDemo(project.demoUrl)">
+                <i class="bi bi-globe2 me-2"></i>View Live Demo
+              </button>
+              <p class="text-white-50 text-center small mt-2 mb-0">
+                <i class="bi bi-lock-fill me-1"></i>
+                Proprietary code - Company project
+              </p>
+            </div>
+
+            <!-- ✅ Regular Layout (if any future public projects) -->
+            <div *ngIf="!project.isPrivate" class="row g-2">
+              <div class="col-6">
+                <button 
+                  class="btn btn-outline-info w-100"
+                  (click)="openGitHub(project.githubUrl)"
+                  [disabled]="!hasGitHubUrl(project)">
+                  <i class="bi bi-github me-2"></i>Code
+                </button>
+              </div>
+              <div class="col-6">
+                <button 
+                  class="btn btn-info w-100"
+                  (click)="openDemo(project.demoUrl)"
+                  [disabled]="!hasDemoUrl(project)">
+                  <i class="bi bi-box-arrow-up-right me-2"></i>Demo
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No Projects Message -->
+    <div class="text-center py-5" *ngIf="filteredProjects.length === 0">
+      <i class="bi bi-inbox display-1 text-white-50 mb-3"></i>
+      <h3 class="text-white-50">No projects found in this category</h3>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="row mt-5 pt-5 border-top border-secondary">
+      <div class="col-12 text-center mb-4">
+        <h3 class="h4 text-info fw-bold">Professional Experience</h3>
+      </div>
+      <div class="col-md-3 col-6 mb-4">
+        <div class="stat-item">
+          <div class="stat-number text-white fw-bold">5+</div>
+          <div class="stat-label text-white-50">Delivered Projects</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 mb-4">
+        <div class="stat-item">
+          <div class="stat-number text-white fw-bold">3+</div>
+          <div class="stat-label text-white-50">Companies</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 mb-4">
+        <div class="stat-item">
+          <div class="stat-number text-white fw-bold">10+</div>
+          <div class="stat-label text-white-50">Technologies</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 mb-4">
+        <div class="stat-item">
+          <div class="stat-number text-white fw-bold">100%</div>
+          <div class="stat-label text-white-50">Client Satisfaction</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="cta-section text-center">
+          <i class="bi bi-lightbulb-fill cta-icon mb-3"></i>
+          <h3 class="h4 text-white fw-bold mb-3">Looking for a skilled developer?</h3>
+          <p class="text-white-50 mb-4">
+            I specialize in delivering enterprise-grade Angular applications.<br>
+            Let's discuss how I can help your team.
+          </p>
+          <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a href="/contact" class="btn btn-info btn-lg px-5">
+              <i class="bi bi-chat-dots me-2"></i>Get In Touch
+            </a>
+            <button class="btn btn-outline-info btn-lg px-5" (click)="downloadResume()">
+              <i class="bi bi-file-earmark-arrow-down me-2"></i>Download Resume
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

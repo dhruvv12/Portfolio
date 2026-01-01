@@ -1,0 +1,135 @@
+<section class="about-section">
+  <div class="container py-5">
+    <!-- Page Header -->
+    <div class="text-center mb-5">
+      <h1 class="display-4 fw-bold text-white mb-3">About Me</h1>
+      <div class="title-underline"></div>
+      <p class="lead text-white-50">Get to know me better</p>
+    </div>
+
+    <!-- Main About Content -->
+    <div class="row g-4 mb-5">
+      <div class="col-lg-5">
+        <div class="about-image-card">
+          <img src="professional.png" alt="Dhruv Gyani" class="img-fluid rounded shadow-lg"
+              >
+        </div>
+      </div>
+      
+      <div class="col-lg-7">
+        <div class="about-content">
+          <h2 class="h3 text-info fw-bold mb-4">Frontend Developer & Angular Specialist</h2>
+          <p class="text-white-50 mb-4">
+            Detail-oriented and innovative Frontend Developer with <strong class="text-info">3+ years of experience</strong> in building dynamic, 
+            user-friendly web applications. I specialize in Angular, JavaScript, and modern UI frameworks with a strong focus on 
+            performance optimization, responsive design, and user experience.
+          </p>
+          <p class="text-white-50 mb-4">
+            I'm passionate about writing clean, maintainable code and collaborating with teams to deliver high-quality applications 
+            that make a real difference. My approach combines technical expertise with creative problem-solving to build solutions 
+            that users love.
+          </p>
+          
+          <!-- Personal Info -->
+          <div class="row g-3 mt-4">
+            <div class="col-md-6">
+              <div class="info-item">
+                <i class="bi bi-person-circle text-info"></i>
+                <div>
+                  <small class="text-white-50 d-block">Name</small>
+                  <strong class="text-white">{{ info.name }}</strong>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="info-item">
+                <i class="bi bi-geo-alt text-info"></i>
+                <div>
+                  <small class="text-white-50 d-block">Location</small>
+                  <strong class="text-white">{{ info.location }}</strong>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="info-item">
+                <i class="bi bi-envelope text-info"></i>
+                <div>
+                  <small class="text-white-50 d-block">Email</small>
+                  <strong class="text-white">{{ info.email }}</strong>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="info-item">
+                <i class="bi bi-telephone text-info"></i>
+                <div>
+                  <small class="text-white-50 d-block">Phone</small>
+                  <strong class="text-white">{{ info.phone }}</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Highlights -->
+    <div class="row g-4 mb-5">
+      <div class="col-12">
+        <h3 class="h4 text-center text-info fw-bold mb-4">Key Highlights</h3>
+      </div>
+      <div class="col-md-6 col-lg-3" *ngFor="let highlight of highlights">
+        <div class="highlight-card">
+          <div class="icon-wrapper">
+            <i class="bi bi-{{ highlight.icon }}"></i>
+          </div>
+          <h4 class="h5 text-white fw-bold mb-2">{{ highlight.title }}</h4>
+          <p class="text-white-50 mb-0">{{ highlight.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <div class="education-card">
+          <div class="row align-items-center">
+            <div class="col-lg-2 text-center mb-3 mb-lg-0">
+              <div class="edu-icon">
+                <i class="bi bi-mortarboard-fill"></i>
+              </div>
+            </div>
+            <div class="col-lg-10">
+              <h3 class="h4 text-info fw-bold mb-2">Education</h3>
+              <h4 class="h5 text-white mb-2">{{ info.education }}</h4>
+              <p class="text-white-50 mb-2">
+                <i class="bi bi-building me-2"></i>{{ info.university }}
+              </p>
+              <div class="d-flex flex-wrap gap-3">
+                <span class="badge bg-info text-dark">
+                  <i class="bi bi-calendar-event me-1"></i>{{ info.yearRange }}
+                </span>
+                <span class="badge bg-success">
+                  <i class="bi bi-trophy me-1"></i>CGPA: {{ info.cgpa }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interests -->
+    <div class="row">
+      <div class="col-12">
+        <h3 class="h4 text-center text-info fw-bold mb-4">Interests & Passion</h3>
+        <div class="interests-container">
+          <div class="interest-badge" *ngFor="let interest of interests">
+            <i class="bi bi-{{ interest.icon }}"></i>
+            <span>{{ interest.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

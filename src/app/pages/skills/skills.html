@@ -1,0 +1,138 @@
+<section class="skills-section">
+  <div class="container py-5">
+    <!-- Page Header -->
+    <div class="text-center mb-5">
+      <h1 class="display-4 fw-bold text-white mb-3">Skills & Expertise</h1>
+      <div class="title-underline"></div>
+      <p class="lead text-white-50">Technologies and tools I work with</p>
+    </div>
+
+    <!-- Skills by Category -->
+    <div class="row g-4 mb-5">
+      <div class="col-lg-6" *ngFor="let category of skillCategories">
+        <div class="skill-category-card h-100">
+          <div class="category-header">
+            <i class="bi bi-{{ category.icon }} category-icon"></i>
+            <h3 class="h4 text-info fw-bold mb-0">{{ category.title }}</h3>
+          </div>
+          
+          <div class="skills-list">
+            <div class="skill-item" *ngFor="let skill of category.skills">
+              <div class="skill-info">
+                <span class="skill-icon">{{ skill.icon }}</span>
+                <span class="skill-name text-white">{{ skill.name }}</span>
+                <span class="skill-percentage text-info">{{ skill.level }}%</span>
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar-custom" [style.width.%]="skill.level">
+                  <div class="progress-glow"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Programming Languages -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <div class="programming-section">
+          <h3 class="h4 text-center text-info fw-bold mb-4">
+            <i class="bi bi-braces me-2"></i>Programming Languages
+          </h3>
+          <div class="row justify-content-center">
+            <div class="col-md-6" *ngFor="let lang of programmingLanguages">
+              <div class="language-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4 class="h5 text-white mb-0">{{ lang.name }}</h4>
+                  <span class="badge bg-info text-dark">{{ lang.level }}%</span>
+                </div>
+                <div class="circular-progress">
+                  <svg class="progress-ring" width="120" height="120">
+                    <circle
+                      class="progress-ring-circle-bg"
+                      stroke="rgba(255, 255, 255, 0.1)"
+                      stroke-width="8"
+                      fill="transparent"
+                      r="52"
+                      cx="60"
+                      cy="60"
+                    />
+                    <circle
+                      class="progress-ring-circle"
+                      [attr.stroke]="lang.color"
+                      stroke-width="8"
+                      fill="transparent"
+                      r="52"
+                      cx="60"
+                      cy="60"
+                      [style.strokeDasharray]="2 * 3.14159 * 52"
+                      [style.strokeDashoffset]="2 * 3.14159 * 52 * (1 - lang.level / 100)"
+                    />
+                  </svg>
+                  <div class="progress-text">
+                    <span class="percentage">{{ lang.level }}</span>
+                    <span class="percent-sign">%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Achievements -->
+    <div class="row">
+      <div class="col-12">
+        <h3 class="h4 text-center text-info fw-bold mb-4">
+          <i class="bi bi-trophy me-2"></i>Key Achievements
+        </h3>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3" *ngFor="let achievement of achievements">
+            <div class="achievement-card">
+              <div class="achievement-icon">
+                <i class="bi bi-{{ achievement.icon }}"></i>
+              </div>
+              <h4 class="h5 text-white fw-bold mb-2">{{ achievement.title }}</h4>
+              <p class="text-white-50 mb-0 small">{{ achievement.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certification -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="certification-card">
+          <div class="row align-items-center">
+            <div class="col-lg-2 text-center mb-3 mb-lg-0">
+              <div class="cert-icon">
+                <i class="bi bi-award-fill"></i>
+              </div>
+            </div>
+            <div class="col-lg-10">
+              <h3 class="h4 text-info fw-bold mb-2">
+                <i class="bi bi-patch-check-fill me-2"></i>Certification
+              </h3>
+              <h4 class="h5 text-white mb-2">Diploma in Programming & Web Development</h4>
+              <p class="text-white-50 mb-2">
+                <i class="bi bi-building me-2"></i>Sarvesh Software Pvt Ltd
+              </p>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge bg-info text-dark">
+                  <i class="bi bi-code me-1"></i>Languages: C++, Data Structures Using C
+                </span>
+                <span class="badge bg-success">
+                  <i class="bi bi-globe me-1"></i>Web: HTML, CSS, JavaScript, Bootstrap, Angular
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
