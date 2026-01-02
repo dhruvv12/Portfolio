@@ -45,7 +45,7 @@ export class Contact {
 
   socialLinks = [
     { icon: 'github', name: 'GitHub', url: 'https://github.com/dhruvv12', color: '#333' },
-    { icon: 'linkedin', name: 'LinkedIn', url: 'https://www.linkedin.com/in/dhruv-gyani', color: '#0077b5' },
+    { icon: 'linkedin', name: 'LinkedIn', url: 'https://www.linkedin.com/in/dhruv-gyani-603b8a341/', color: '#0077b5' },
     { icon: 'envelope-at', name: 'Email', url: 'mailto:dhruvgyanii@gmail.com', color: '#ea4335' },
     { icon: 'whatsapp', name: 'WhatsApp', url: 'https://wa.me/919351286165', color: '#25d366' }
   ];

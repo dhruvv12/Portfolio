@@ -12,7 +12,7 @@ export class Footer {
 
   socialLinks = [
     { icon: 'github', url: 'https://github.com/dhruvv12', label: 'GitHub' },
-    { icon: 'linkedin', url: 'https://www.linkedin.com/in/dhruv-gyani', label: 'LinkedIn' },
+    { icon: 'linkedin', url: 'https://www.linkedin.com/in/dhruv-gyani-603b8a341/', label: 'LinkedIn' },
     { icon: 'envelope', url: 'mailto:dhruvgyanii@gmail.com', label: 'Email' },
     { icon: 'telephone', url: 'tel:+919351286165', label: 'Phone' }
   ];
