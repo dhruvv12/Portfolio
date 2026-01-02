@@ -50,6 +50,7 @@ export class Contact {
     { icon: 'whatsapp', name: 'WhatsApp', url: 'https://wa.me/919351286165', color: '#25d366' }
   ];
 
+  
   formData: ContactForm = {
     name: '',
     email: '',
